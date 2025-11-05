@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Room Rental Portal</title>
+  <link rel="stylesheet" href="file.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Sticky Header with Menu -->
+  <header class="header">
+    <h1 class="header-title"><i class="fas fa-home"></i> Room Rental Portal</h1>
+    <button id="menuBtn" class="menu-btn"><i class="fas fa-ellipsis-v"></i></button>
+    <div id="dropdownMenu" class="dropdown-menu hidden">
+      <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      <button id="deleteAccountBtn"><i class="fas fa-trash"></i> Delete Account</button>
+    </div>
+  </header>
+
+  <div id="landing" class="section">
+    <div class="welcome-card">
+      <h1 class="welcome-title">Welcome Back!</h1>
+      <p class="welcome-text">Find your perfect room or list your property.</p>
+      <div class="button-group">
+        <button id="landlordBtn" class="btn-primary"><i class="fas fa-plus"></i> Landlord</button>
+        <button id="renterBtn" class="btn-secondary"><i class="fas fa-search"></i> Renter</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="landlordSection" class="section hidden">
+    <div class="container">
+      <h2><i class="fas fa-edit"></i> Post a Room</h2>
+      <form id="roomForm" class="form-card">
+        <div class="form-group">
+          <label for="address"><i class="fas fa-map-marker-alt"></i> Address:</label>
+          <textarea id="address" placeholder="e.g. House No 2, Ring Road, Meerut, Uttar Pradesh - 250400" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="city"><i class="fas fa-city"></i> City:</label>
+          <textarea id="city" placeholder="Enter City" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="pincode"><i class="fas fa-hashtag"></i> Pin Code:</label>
+          <input type="text" id="pincode" name="pincode" inputmode="numeric" pattern="\d{6}" maxlength="6" placeholder="Enter 6-digit Pin Code" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="size"><i class="fas fa-ruler-combined"></i> Size (sq ft):</label>
+            <input type="number" id="size" required min="50" max="1000" placeholder="e.g. 500">
+          </div>
+          <div class="form-group">
+            <label for="rent"><i class="fas fa-rupee-sign"></i> Rent (₹):</label>
+            <input type="number" id="rent" required min="1000" max="100000" placeholder="e.g. 10000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="Fixtures"><i class="fas fa-couch"></i> Fixtures:</label>
+            <select id="Fixtures" required>
+              <option value="" disabled selected>Select</option>
+              <option value="Furnished">Furnished</option>
+              <option value="Semi-Furnished">Semi-Furnished</option>
+              <option value="Unfurnished">Unfurnished</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="facility"><i class="fas fa-snowflake"></i> Facility:</label>
+            <select id="facility" required>
+              <option value="" disabled selected>Select</option>
+              <option value="AC">AC</option>
+              <option value="Non-AC">Non-AC</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="wifi"><i class="fas fa-wifi"></i> WiFi:</label>
+          <select id="wifi" required>
+            <option value="" disabled selected>Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="images"><i class="fas fa-images"></i> Upload Images (1-5):</label>
+          <input id="images" type="file" multiple accept="image/*">
+        </div>
+        <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Post Room</button>
+        <button type="button" id="landlordBackBtn" class="btn-secondary"><i class="fas fa-arrow-left"></i> Back</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="renterSection" class="section hidden">
+    <div class="container">
+      <h2><i class="fas fa-list"></i> Available Rooms</h2>
+      <div id="searchContainer" class="search-bar">
+        <input type="text" id="searchCity" placeholder="Search by city (e.g., Del)..." />
+        <button id="searchBtn" class="btn-primary"><i class="fas fa-search"></i> Search</button>
+        <button id="clearSearchBtn" class="btn-secondary"><i class="fas fa-times"></i> Clear</button>
+      </div>
+      <div id="listings" class="listings-grid"></div>
+      <button id="renterBackBtn" class="btn-secondary back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+    </div>
+  </div>
+
+  <!-- Image Popup Overlay -->
+  <div id="imagePopupOverlay" class="hidden">
+    <button id="closePopupBtn"><i class="fas fa-times"></i></button>
+    <img id="popupImage" src="" alt="Full Size Image" />
+  </div>
+
+  <script src="file.js"></script>
+</body>
+</html>

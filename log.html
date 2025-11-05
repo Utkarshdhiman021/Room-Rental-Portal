@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Room Rental Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="log.css" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="logo">
+      <i class="fas fa-home"></i> Room Rental Portal
+    </div>
+
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="login">Sign In</button>
+      <button class="tab-btn" data-tab="register">Sign Up</button>
+    </div>
+
+    <form id="loginForm" class="form active">
+      <div class="form-group">
+        <label for="loginEmail"><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" id="loginEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="loginPass"><i class="fas fa-lock"></i> Password</label>
+        <input type="password" id="loginPass" required>
+      </div>
+      <button type="submit" class="btn-primary">Sign In</button>
+      <div id="loginError" class="error"></div>
+    </form>
+
+    <form id="registerForm" class="form">
+      <div class="form-group">
+        <label for="regEmail"><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" id="regEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="regPass"><i class="fas fa-lock"></i> Password</label>
+        <input type="password" id="regPass" required minlength="6">
+      </div>
+      <div class="form-group">
+        <label for="regConfirmPass"><i class="fas fa-lock"></i> Confirm Password</label>
+        <input type="password" id="regConfirmPass" required minlength="6">
+      </div>
+      <button type="submit" class="btn-primary">Sign Up</button>
+      <div id="registerError" class="error"></div>
+    </form>
+  </div>
+
+  <script src="log.js"></script>
+</body>
+</html>
