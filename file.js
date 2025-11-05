@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     logoutBtn.addEventListener('click', () => {
         localStorage.removeItem("loggedInUser");
         alert("Logged out successfully!");
-        window.location.href = "log.html";
+        window.location.href = "index.html";
     });
 
     // Delete account
